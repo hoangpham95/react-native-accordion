@@ -109,7 +109,7 @@ export default class Accordion extends React.Component<{}> {
         <View
           ref="AccordionContentWrapper"
           style={{
-            height: this.getTweeningValue('height')
+            height: this.tweenState.getTweeningValue('height')
           }}
         >
           <View ref="AccordionContent">
