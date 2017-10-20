@@ -11,10 +11,10 @@ import {
   Text
 } from 'react-native';
 
-var Accordion = React.createClass({
-  mixins: [tweenState.Mixin],
+export default class Accordion extends React.Component<{}> {
+  static mixins: [tweenState.Mixin],
 
-  propTypes: {
+  static propTypes: {
     activeOpacity: PropTypes.number,
     animationDuration: PropTypes.number,
     content: PropTypes.element.isRequired,
@@ -120,6 +120,4 @@ var Accordion = React.createClass({
       /*jshint ignore:end */
     );
   }
-});
-
-module.exports = Accordion;
+};
