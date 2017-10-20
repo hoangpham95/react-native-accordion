@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 export default class Accordion extends React.Component<{}> {
-  static mixins: [tweenState.Mixin],
+  static mixins: [tweenState.Mixin];
 
   static propTypes: {
     activeOpacity: PropTypes.number,
@@ -24,7 +24,7 @@ export default class Accordion extends React.Component<{}> {
     onPress: PropTypes.func,
     underlayColor: PropTypes.string,
     style: PropTypes.object
-  },
+  };
 
   getDefaultProps() {
     return {
@@ -35,7 +35,7 @@ export default class Accordion extends React.Component<{}> {
       underlayColor: '#000',
       style: {}
     };
-  },
+  }
 
   getInitialState() {
     return {
@@ -43,15 +43,15 @@ export default class Accordion extends React.Component<{}> {
       height: 0,
       content_height: 0
     };
-  },
+  }
 
   close() {
     this.state.is_visible && this.toggle();
-  },
+  }
 
   open() {
     !this.state.is_visible && this.toggle();
-  },
+  }
 
   toggle() {
     this.state.is_visible = !this.state.is_visible;
@@ -61,7 +61,7 @@ export default class Accordion extends React.Component<{}> {
       duration: this.props.animationDuration,
       endValue: this.state.height === 0 ? this.state.content_height : 0
     });
-  },
+  }
 
   _onPress() {
     this.toggle();
@@ -69,7 +69,7 @@ export default class Accordion extends React.Component<{}> {
     if (this.props.onPress) {
       this.props.onPress.call(this);
     }
-  },
+  }
 
   _getContentHeight() {
     if (this.refs.AccordionContent) {
@@ -81,14 +81,14 @@ export default class Accordion extends React.Component<{}> {
         });
       });
     }
-  },
+  }
 
   componentDidMount() {
     // Gets content height when component mounts
     // without setTimeout, measure returns 0 for every value.
     // See https://github.com/facebook/react-native/issues/953
     setTimeout(this._getContentHeight);
-  },
+  }
 
   render() {
     return (
